@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConsoleHome</title>
+    <script src="script.js"></script>
+</head>
+
+<body onload="start()">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+        body {
+            font-family: 'Ubuntu Mono', monospace;
+            background-color: black;
+            color: white;
+        }
+        p {
+            font-size: 20px;
+        }
+        input {
+            background-color: black;
+            border: 0px;
+            color: white;
+            font-size: 20px;
+            font-family: 'Ubuntu Mono', monospace;
+        }
+        #timetext {
+            font-size: 16px;
+        }
+        #datetext {
+            font-size: 16px;
+        }
+    </style>
+    <p id="timetext"></p>
+    <p id="datetext"></p>
+    <p id="console">consolehome><input type="text" onfocus="this.value=''" oninput="fetchtext(this.value)" onkeypress="checkEnter(event)"></p>
+    <p id="output"></p>
+    
+</body>
+
+</html>
