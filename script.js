@@ -8,6 +8,7 @@ async function start() {
     const hou = new Date().getHours();
     document.getElementById("timetext").innerHTML = hou + ":" + min + ":" + sec;
     document.getElementById("datetext").innerHTML = new Date().toLocaleDateString();*/
+    document.getElementById("input").select()
 
     document.getElementById("timetext").innerHTML = new Date()
     setInterval(() => {
@@ -37,7 +38,7 @@ function run() {
     if (cmd == "hi") {
         document.getElementById("output").innerHTML = "Hello world!";
     } else if (cmd == "help") {
-        document.getElementById("output").innerHTML = "COMMANDS:<br>help | google <query> | b <webpage>"
+        document.getElementById("output").innerHTML = "COMMANDS:<br>help | google &lt;query&gt; | b &lt;webpage&gt; | yt (query)<br><small>&lt;required&gt; (optional)</small&gt;"
     } else if (cmd.startsWith("google")) {
         const search = cmd.split("google ")
         if (search[1] == undefined) {
@@ -45,6 +46,13 @@ function run() {
             return
         }
         window.location.href = "https://www.google.com/search?q=" + search[1];
+    } else if (cmd.startsWith("yt")) {
+        const search = cmd.split("yt ")
+        if (search[1] == undefined) {
+            window.location.href = "https://www.youtube.com/";
+            return
+        }
+        window.location.href = "https://www.youtube.com/results?search_query=" + search[1];
     } else if (cmd.startsWith("browse ")) {
         const search = cmd.split("browse ")
         if (search[1] == undefined) {
