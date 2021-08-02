@@ -1,33 +1,63 @@
+var wvisible = false;
 async function start() {
-/*  OLD: 
+    document.getElementById("window").style.visibility = "hidden";
+    document.onkeypress = function () {
+        if (wvisible == false) {
+            wvisible = true;
+            document.getElementById("window").style.visibility = "visible";
+            document.getElementById("input").select()
+            document.getElementById("big").style.visibility = "hidden";
+        }
+    }
+
     var sec = new Date().getSeconds();
+    var min = new Date().getMinutes();
+    var hou = new Date().getHours();
     if (sec <= 9) {
         sec = "0" + sec;
     }
-    const min = new Date().getMinutes();
-    const hou = new Date().getHours();
-    document.getElementById("timetext").innerHTML = hou + ":" + min + ":" + sec;
-    document.getElementById("datetext").innerHTML = new Date().toLocaleDateString();*/
-    document.getElementById("input").select()
-
+    if (min <= 9) {
+        min = "0" + min;
+    }
+    if (hou <= 9) {
+        hou = "0" + hou;
+    }
+    document.getElementById("bigclock").innerHTML = hou + ":" + min + ":" + sec;
+    document.getElementById("bigdate").innerHTML = new Date().toLocaleDateString();
+    setInterval(() => {
+        var sec = new Date().getSeconds();
+        var min = new Date().getMinutes();
+        var hou = new Date().getHours();
+        if (sec <= 9) {
+            sec = "0" + sec;
+        }
+        if (min <= 9) {
+            min = "0" + min;
+        }
+        if (hou <= 9) {
+            hou = "0" + hou;
+        }
+        document.getElementById("bigclock").innerHTML = hou + ":" + min + ":" + sec;
+        document.getElementById("bigdate").innerHTML = new Date().toLocaleDateString();
+    }, 1000);
     document.getElementById("timetext").innerHTML = new Date()
     setInterval(() => {
         document.getElementById("timetext").innerHTML = new Date()
     }, 1000);
 }
 var cmd;
-function checkEnter(e){
+function checkEnter(e) {
     var keynum;
 
-    if(window.event) { // IE                    
-      keynum = e.keyCode;
-    } else if(e.which){ // Netscape/Firefox/Opera                   
-      keynum = e.which;
+    if (window.event) { // IE                    
+        keynum = e.keyCode;
+    } else if (e.which) { // Netscape/Firefox/Opera                   
+        keynum = e.which;
     }
     if (keynum == 13) {
         run();
     }
-    
+
 }
 
 function fetchtext(text) {

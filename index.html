@@ -6,20 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ConsoleHome</title>
     <script src="script.js"></script>
-    
-</head>
-
-<body onload="start()">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+
         body {
             font-family: 'Ubuntu Mono', monospace;
             background-color: black;
             color: white;
         }
+
         p {
             font-size: 20px;
         }
+
         input {
             background-color: black;
             border: 0px;
@@ -27,18 +26,49 @@
             font-size: 20px;
             font-family: 'Ubuntu Mono', monospace;
         }
+
         #timetext {
             font-size: 16px;
         }
+
         #datetext {
             font-size: 16px;
         }
+
+        h1 {
+            font-size: 80px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 50px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 20px;
+            text-align: center;
+            font-weight: 400;
+        }
     </style>
-    <p id="timetext"></p>
-    <p id="datetext"></p>
-    <p id="console">consolehome><input id="input" type="text" onfocus="this.value=''" width="100" oninput="fetchtext(this.value)" onkeypress="checkEnter(event)"></p>
-    <p id="output"></p>
-    
+
+</head>
+
+<body onload="start()">
+    <div id="big">
+        <h1 id="bigclock"></h1>
+        <h2 id="bigdate"></h2>
+        <h3>Press any key...</h3>
+    </div>
+    <div id="window">
+        <p id="timetext"></p>
+        <p id="datetext"></p>
+        <p id="console">consolehome><input id="input" type="text" onfocus="this.value=''" width="100"
+                oninput="fetchtext(this.value)" onkeypress="checkEnter(event)"></p>
+        <p id="output"></p>
+    </div>
 </body>
 
 </html>
