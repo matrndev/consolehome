@@ -76,6 +76,13 @@ function run() {
             return
         }
         window.location.href = "https://www.google.com/search?q=" + search[1];
+    } else if (cmd.startsWith("g")) {
+        const search = cmd.split("g ")
+        if (search[1] == undefined) {
+            document.getElementById("output").innerHTML = "<b>ERROR!</b><br>Search query is undefined.<br><i>Usage: google query</i>"
+            return
+        }
+        window.location.href = "https://www.google.com/search?q=" + search[1];
     } else if (cmd.startsWith("yt")) {
         const search = cmd.split("yt ")
         if (search[1] == undefined) {
